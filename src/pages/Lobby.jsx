@@ -61,7 +61,13 @@ export default class Lobby extends Component {
 
   // load more movies
   loadMoreResults = async (pageNumber) => {
-    const loadMoreUrl = `${API_URL}movie/popular?api_key=${API_KEY}&page=${pageNumber}`;
+    let loadMoreUrl;
+    if(this.state.searchParam){
+      loadMoreUrl = `${API_URL}search/movie?api_key=${API_KEY}&query=${this.state.searchParam}&page=${pageNumber}`;
+    } else {
+      loadMoreUrl = `${API_URL}movie/popular?api_key=${API_KEY}&page=${pageNumber}`;
+    }
+    
     const response = await fetch(loadMoreUrl, {
       headers: {
         Authorization: `token ${API_KEY}`,
