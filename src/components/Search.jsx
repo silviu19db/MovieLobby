@@ -10,25 +10,27 @@ export default class Search extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearSearch = this.clearSearch.bind(this);
   }
-
+  
+  // getting entered text from search input
   handleChange(e) {
     this.setState({
       text: e.target.value,
     });
   }
 
+  // handling search form submit
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.text === "") {
       alert("Please enter something");
     } else {
-      console.log(this.props.currentPage);
       this.props.searchMovies(this.state.text, this.props.currentPage);
 
       this.clearSearch();
     }
   }
 
+  // resetting search form
   clearSearch() {
     this.setState({ text: "" });
   }
