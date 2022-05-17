@@ -1,6 +1,7 @@
 # MovieLobby
 
 To install this project locally on your machine and test it, please go through the following steps:
+   - install node and npm on your machine
    - install git on your machine
    - git clone https://github.com/silviu19db/MovieLobby.git
    - cd MovieLobby
